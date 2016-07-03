@@ -1,6 +1,14 @@
-cmake_minimum_required(VERSION 2.8.9)
-project(test_cpp)
-add_executable (main Main.cpp)
-include_directories(/usr/local/include)
-link_directories(/usr/local/lib)
-list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g -Wall")
+cmake_minimum_required(VERSION 3.2)
+project(SFMLDemo)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+set(SOURCE_FILES Main.cpp)
+add_executable(SFMLDemo ${SOURCE_FILES})
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
+find_package(SFML REQUIRED system window graphics network audio)
+if (SFML_FOUND)
+    include_directories(${SFML_INCLUDE_DIR})
+    target_link_libraries(SFMLDemo ${SFML_LIBRARIES})
+endif()

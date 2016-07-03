@@ -37,3 +37,4 @@ CTestTestfile.cmake
 *.exe
 *.out
 *.app
+SFMLDemo
