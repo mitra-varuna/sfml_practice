@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8.9)
+project(test_cpp)
+add_executable (main Main.cpp)
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g -Wall")
